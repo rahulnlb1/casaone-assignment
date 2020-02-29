@@ -49,9 +49,15 @@ In this approach, the variables are calculated on the fly based on the history o
 
 > Note: Calculating average based on the past deliveries would not make much sense if it was done long back. Ex: If a product was delivered in 2015, and we consider that cost for our calculation in 2020, then the value wouldn't be that accurate. So, it is important to filter out data for calculation on a periodic basis.
 
+#### How do we bake it into our system?
+
 The installation person can be provided with a UI, where after each delivery he would have to input the actual cost that was incurred. This data can be used to derives the cost of the product.
 
 Moreover, these data can be used by the company to analyze cost trends so that the CasaOne can take some steps to reduce these variables.
+
+#### If the business teams need to make a decision based on the derived variables, how will you help the teams get it?
+
+We would provide an analytical dashborad for the business team to get advantage of this data so that they can take important bussiness decision based on the data.
 
 Advantages of this approach:
 
@@ -69,7 +75,9 @@ Disadvantages:
 
 In this approach, we use a Machine Learning based algorithm to analyze the past data and predict the values.
 
-Whenever the installation person enters a new value of installation, our engine to calculate the latest value is triggered. As soon as the calculation is done, the new values are updated w.r.t. the product.
+#### How will you ensure that the 'derived values' are updated with the latest value?
+
+Whenever the installation person enters a new value of installation, our engine to calculate the latest value is triggered. As soon as the calculation is done, the new values are updated w.r.t. the product. These asyncronous tasks can be ensured by a message broker.
 
 Ex: A crew member installs a King-sized bed for a customer. He would update the price and time it took for him to install. This would trigger our ML algorithm to recalculate the prices and then update the prices w.r.t the latest delivery.
 

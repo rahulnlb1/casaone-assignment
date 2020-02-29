@@ -64,3 +64,23 @@ Disadvantages:
 1. Implementation is more complex than the first approach.
 2. Since calculation is happening on the fly, it might take some more time to calculate.
 3. Calculation of variables for a new product might be tricky. One solution is that we can fallback to the first approach in case of a new product.
+
+### 3. Machine Learning Algoritms
+
+In this approch, we use a Machine Learning based algoritm to analyze the past data and predict the values.
+
+Whenever the installation person enters a new value of installation, our engine to calcate the latest value is triggered. As soon as the calculation is done, the new values are updated w.r.t. the product.
+
+Ex: A crew member installs a King-sized bed for a customer. He would update the price and time it took for him to install. This would trigger our ML algoritm to recalculate the prices and then upadte the prices w.r.t the latest delivery.
+
+Moreover, based on the implementation of the ML algoritm, we might also derive many factors that were not visible from the human's eye. Ex: Based on the result, installation of `Wakefit Andromeda Sheesham Bed` takes more time during decembers. The reason when investigated was that the wood that it uses shrinks in the winters. So we can takes steps to improve the quality of the products so that our installation time reduces.
+
+Advantages of this approach:
+
+1. More realistic results can be derived.
+2. Can help us gather more insights about the variables so that we can take steps to improve those.
+
+Disadvantages:
+
+1. Implementation is even more complex.
+2. Require lots of data to derive the values - `cold-start problem`.

@@ -43,3 +43,24 @@ Disadvantages:
 2. Scalability: Their might be huge number variables that might affect the cost in future. This approach might not work if the number of variables increases.
 3. Same cost might not hold good for all the products in the same category. Ex: A new product, King-sized bed, is offered to the customers which has cost of assembly way more than normal king-sized beds. It would be difficult to derive the cost in this approach.
 
+### 2. Running Average/Mean
+
+In this approach, the variables are calculated on the fly based on the history of the product(ex: last 10 deliveries).
+
+> Note: Calculating average based on the past deliveries would not make much sense if it was done long back. Ex: If a product was delivered in 2015, and we consider that cost for our calculation in 2020, then the value wouldn't be that accurate. So, it is important to filter out data for calculation in a periodic basis.
+
+The installation person can be provided with a UI, where after each deilvery he would have to input the actual cost that was incurred. This data can be used to derives the cost for the product.
+
+Moreover, these data can be used by the company to analyze cost trends so that the CasaOne can take some steps to reduce these variables.
+
+Advantages of this approach:
+
+1. It would give more realistic results.
+2. Scalable. This approach is capable of handling number large number of variables.
+3. This approach can help CasaOne analyze and improve the variable costs, so that customers gets more benifits.
+
+Disadvantages:
+
+1. Implementation is more complex than the first approach.
+2. Since calculation is happening on the fly, it might take some more time to calculate.
+3. Calculation of variables for a new product might be tricky. One solution is that we can fallback to the first approach in case of a new product.

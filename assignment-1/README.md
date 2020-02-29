@@ -84,3 +84,8 @@ Disadvantages:
 
 1. Implementation is even more complex.
 2. Require lots of data to derive the values - `cold-start problem`.
+
+## Conclusion
+
+Since all the approaches has its advantages and disadvantages, we can proceed with a phased approach. 
+We can start with [running average](#2-running-averagemean) and as we have a good ML algoritm with a good accuracy-rate, we can slowly shift towards it.

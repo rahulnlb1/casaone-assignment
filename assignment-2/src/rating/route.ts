@@ -18,7 +18,7 @@ export class RatingRoute {
   };
 
   private getOne = (req: Request, res: Response) => {
-    const ratingId: number = Number(req.params.ratingId);
+    const ratingId: string = req.params.ratingId;
 
     const data = this.ratingService.findOneById(ratingId);
 
@@ -34,7 +34,7 @@ export class RatingRoute {
   };
 
   private getRatingsByProductId = (req: Request, res: Response) => {
-    const productId: number = Number(req.params.productId);
+    const productId: string = req.params.productId;
 
     const data = this.ratingService.getRatingsByProductId(productId);
     res.status(200).send(data);

@@ -7,8 +7,8 @@ export enum RatingValue {
 }
 
 export interface IRating {
-  id: number;
-  productId: number;
-  givenBy: number;
+  id: string;
+  productId: string;
+  givenBy: string;
   rating: RatingValue;
 }

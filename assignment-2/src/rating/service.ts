@@ -10,7 +10,7 @@ export class Rating {
     return this.rating;
   }
 
-  public findOneById(id: number) {
+  public findOneById(id: string) {
     const rating = this.rating.filter(element =>
       element.id === id ? true : false
     )[0];
@@ -18,9 +18,9 @@ export class Rating {
   }
 
   public create(rating: IRating) {
-    rating.id = this.rating.length + 1;
+    rating.id = String(this.rating.length + 1);
     this.rating = [...this.rating, rating];
   }
 
-  public getRatingsByProductId(_productId: number) {}
+  public getRatingsByProductId(_productId: string) {}
 }

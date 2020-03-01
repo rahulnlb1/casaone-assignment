@@ -1,4 +1,4 @@
-import { IRating } from "./types";
+import { IRating, RatingValue } from "./types";
 export class Rating {
   rating: IRating[];
 
@@ -55,11 +55,11 @@ export class Rating {
         total: 0,
         average: 0,
         count: {
-          1: 0,
-          2: 0,
-          3: 0,
-          4: 0,
-          5: 0
+          [RatingValue.One]: 0,
+          [RatingValue.Two]: 0,
+          [RatingValue.Three]: 0,
+          [RatingValue.Four]: 0,
+          [RatingValue.Five]: 0
         }
       }
     };

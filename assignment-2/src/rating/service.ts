@@ -13,7 +13,7 @@ export class Rating {
   public findOneById(id: string) {
     const rating = this.rating.filter(element =>
       element.id === id ? true : false
-    )[0];
+    );
     return rating;
   }
 
@@ -22,5 +22,42 @@ export class Rating {
     this.rating = [...this.rating, rating];
   }
 
-  public getRatingsByProductId(_productId: string) {}
+  private getRatingByProduct(productId: string) {
+    const rating = this.rating.filter(element =>
+      element.productId === productId ? true : false
+    );
+    return rating;
+  }
+
+  public getRatingsByProductId(_productId: string) {
+    //creating basic structure for returning result
+    const result = {
+      productId: _productId,
+      rating: {
+        total: 0,
+        average: 0,
+        count: {
+          1: 0,
+          2: 0,
+          3: 0,
+          4: 0,
+          5: 0
+        }
+      }
+    };
+
+    const ratings = this.getRatingByProduct(_productId);
+    result.rating.total = ratings.length;
+
+    let sumOfRating = 0;
+    for (const rating of ratings) {
+      result.rating.count[rating.rating] =
+        result.rating.count[rating.rating] + 1;
+      sumOfRating = sumOfRating + Number(rating.rating);
+    }
+
+    result.rating.average = sumOfRating / ratings.length;
+
+    return result;
+  }
 }

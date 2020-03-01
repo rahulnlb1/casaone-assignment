@@ -21,8 +21,11 @@ export class RatingRoute {
     const ratingId: string = req.params.ratingId;
 
     const data = this.ratingService.findOneById(ratingId);
-
-    res.status(200).send(data);
+    if (data.length > 0) {
+      res.status(200).send(data[0]);
+    } else {
+      res.status(404).send();
+    }
   };
 
   private create = (req: Request, res: Response) => {
@@ -37,7 +40,11 @@ export class RatingRoute {
     const productId: string = req.params.productId;
 
     const data = this.ratingService.getRatingsByProductId(productId);
-    res.status(200).send(data);
+    if (data) {
+      res.status(200).send(data);
+    } else {
+      res.status(404).send();
+    }
   };
 
   public getRouter = (): Router => {

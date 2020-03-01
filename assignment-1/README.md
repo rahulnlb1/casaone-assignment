@@ -97,3 +97,6 @@ Disadvantages:
 
 Since all the approaches have advantages and disadvantages, we can proceed with a phased approach. 
 We can start with [running average](#2-running-averagemean) and as we have a good ML algorithm with a good accuracy-rate, we can slowly shift towards it.
+
+The image below shows an overview of the architecture. In future, `Variables Service` can be extended to support ML use-cases.
+![architecture](architecture.png)

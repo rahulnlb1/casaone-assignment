@@ -20,7 +20,7 @@
 
     "typeRoots": ["./node_modules/@types"],
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
+    //"esModuleInterop": true,
     "forceConsistentCasingInFileNames": true
   },
   "include": ["src/*.ts", "src/**/*.ts"],

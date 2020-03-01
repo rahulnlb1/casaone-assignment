@@ -84,8 +84,21 @@ export class Rating {
     }
 
     //calculating average
-    result.rating.average = sumOfRating / ratings.length;
+    result.rating.average = Number((sumOfRating / ratings.length).toFixed(2));
 
     return result;
+  }
+
+  public createDummyData() {
+    new Array(10).fill(null).map(_ => {
+      this.create({
+        id: "",
+        productId: "1",
+        givenBy: "Rahul",
+        rating: Math.floor(Math.random() * 5) + 1
+      });
+    });
+
+    return this.rating;
   }
 }

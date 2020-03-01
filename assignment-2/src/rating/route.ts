@@ -60,6 +60,18 @@ export class RatingRoute {
     }
   };
 
+  public createDummyData = (_: Request, res: Response) => {
+    //calling service to get data
+    const data = this.ratingService.createDummyData();
+
+    //returning result with valid status codes
+    if (data) {
+      res.status(201).send(data);
+    } else {
+      res.status(404).send();
+    }
+  };
+
   public getRouter = (): Router => {
     this.router.route("/").get(this.getAll);
 
@@ -71,6 +83,9 @@ export class RatingRoute {
 
     // Get the ratings of a given product id
     this.router.route("/product/:productId").get(this.getRatingsByProductId);
+
+    //Create dummy data for testing
+    this.router.route("/create/data").post(this.createDummyData);
 
     return this.router;
   };

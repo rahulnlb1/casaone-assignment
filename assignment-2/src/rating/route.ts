@@ -12,15 +12,21 @@ export class RatingRoute {
   }
 
   private getAll = (_: Request, res: Response) => {
+    //get data from the service
     const data = this.ratingService.findAll();
 
+    //return the result with status code
     res.status(200).send(data);
   };
 
   private getOne = (req: Request, res: Response) => {
+    //reading parameters of the request
     const ratingId: string = req.params.ratingId;
 
+    //getting data from the service
     const data = this.ratingService.findOneById(ratingId);
+
+    //returning result with valid status codes
     if (data.length > 0) {
       res.status(200).send(data[0]);
     } else {
@@ -29,17 +35,24 @@ export class RatingRoute {
   };
 
   private create = (req: Request, res: Response) => {
+    //readng data from body
     const rating: IRating = req.body;
 
+    //calling service to create data
     const ratingCreated = this.ratingService.create(rating);
 
+    //returning result with valid status codes
     res.status(201).send(ratingCreated);
   };
 
   private getRatingsByProductId = (req: Request, res: Response) => {
+    //reading parameters of the request
     const productId: string = req.params.productId;
 
+    //calling service to get data
     const data = this.ratingService.getRatingsByProductId(productId);
+
+    //returning result with valid status codes
     if (data) {
       res.status(200).send(data);
     } else {

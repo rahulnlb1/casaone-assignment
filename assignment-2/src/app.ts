@@ -1,4 +1,5 @@
 import { BasePath as HealthBasePath, healthRouter } from "./health";
+import { BasePath as RatingBasePath, ratingRouter } from "./rating";
 import { Server } from "./server";
 
 export class App {
@@ -18,6 +19,7 @@ export class App {
 
   public initRoutes = (): void => {
     this.server.addRouter(HealthBasePath, healthRouter);
+    this.server.addRouter(RatingBasePath, ratingRouter);
   };
 
   private initServer = () => {

@@ -48,6 +48,12 @@ To run the app for development environment, use the following command:
 npm run dev
 ```
 
+To run the tests, use the following command:
+
+```sh
+npm test
+```
+
 ### Usage of application
 
 #### Get /rating
@@ -144,3 +150,5 @@ This route create dummy data in the system.
 1. Currently I am storing data in-memory. This can be extended to use a database.
 2. There is no pagination or search feature in the service.
 3. Currently only implemented POST and GET for `/rating`. We can also implement other HTTP methods.
+4. More tests could have been written to consider more cases.
+5. Integration tests could also have been written.
